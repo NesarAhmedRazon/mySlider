@@ -1,0 +1,9 @@
+.sliderContainer {
+  width: 100%;
+  height: fit-content;
+  overflow-y: hidden;
+  background-color: red;
+  & .slick-list {
+    transform: translateY(-25%);
+  }
+}

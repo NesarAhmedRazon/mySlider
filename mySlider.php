@@ -1,10 +1,32 @@
 <?php
 
 /*
-Plugin Name: Custom Project Slider
-Plugin URI: http://wordpress.org/plugins/hello-dolly/
-Description: This is not just a plugin, it symbolizes the hope and enthusiasm of an entire generation summed up in two words sung most famously by Louis Armstrong: Hello, Dolly. When activated you will randomly see a lyric from <cite>Hello, Dolly</cite> in the upper right of your admin screen on every page.
-Author: Matt Mullenweg
-Version: 1.7.2
-Author URI: http://ma.tt/
+Plugin Name: mySlider
+Plugin URI: https://github.com/NesarAhmedRazon/mySlider.git
+Description: This is a WordPress Plugin to output custom post Type 'Project' as slidder on home page
+Author: Nesar Ahmed
+Version: 0.0.1
+Author URI: https://github.com/NesarAhmedRazon/
 */
+
+function make_shortcode(){
+    wp_enqueue_style( 'slider-style', plugin_dir_url( __FILE__ ).'assets/slick/slick.css');
+    wp_enqueue_style( 'slider-base', plugin_dir_url( __FILE__ ).'assets/base.css');
+    wp_enqueue_script('slider-lib', plugin_dir_url( __FILE__ ).'assets/slick/slick.js', array(), null, true);
+    wp_enqueue_script('slider-app', plugin_dir_url( __FILE__ ).'assets/app.js', array(), null, true);
+
+
+    ob_start(); ?>
+
+        <div class="sliderContainer">
+                <img src="<?php echo plugin_dir_url( __FILE__ );?>/assets/preview3.jpg">
+                <img src="<?php echo plugin_dir_url( __FILE__ );?>/assets/preview2.jpg">
+                <div class="swiper-slide">Slide 3</div>
+            </div>  
+        
+    <?php $projectData = ob_get_clean();
+return $projectData;
+    
+}
+
+add_shortcode( 'myslider', 'make_shortcode' );
