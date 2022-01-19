@@ -8,61 +8,59 @@ Author: Nesar Ahmed
 Version: 0.0.1
 Author URI: https://github.com/NesarAhmedRazon/
 */
-
-function make_shortcode(){
-    wp_enqueue_style( 'slider-style', plugin_dir_url( __FILE__ ).'assets/slick/slick.css');
-    wp_enqueue_style( 'slider-base', plugin_dir_url( __FILE__ ).'assets/base.css');
-    wp_enqueue_script('slider-lib', plugin_dir_url( __FILE__ ).'assets/slick/slick.js', array(), null, true);
-    wp_enqueue_script('slider-app', plugin_dir_url( __FILE__ ).'assets/app.js', array(), null, true);
-
-if(is_page()){
-    ob_start(); 
-    $content = the_content();
-    
+function make_postcards($attr, $content = null){
+ 
     global $post;
  
-    $myposts = get_posts( array(
-        'post_type'  => 'project',
-        'posts_per_page' => 5,
-        'offset'         => 1,
-        'category'       => 1
-    ) );
+    // Defining Shortcode's Attributes
+    $shortcode_args = shortcode_atts(
+                        array(
+                                'post'     => '',
+                                'num'     => '5',
+                                'order'  => 'desc'
+                        ), $attr);    
+     
+    // array with query arguments
+    $args = array(
+                    'post_type'      => $shortcode_args['post'],
+                    'posts_per_page' => $shortcode_args['num'],
+                    'order'          => $shortcode_args['order'],
+                     
+                 );
  
-    if ( $myposts ) {
-        foreach ( $myposts as $post ) : 
-            setup_postdata( $post ); ?>
-            <div class="sliderContainer">
-            <?php if ( has_post_thumbnail() ) : ?>
-                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                    <?php the_post_thumbnail(); ?>
-                </a>
-            <?php endif; ?>
-                <img src="<?php echo plugin_dir_url( __FILE__ );?>/assets/preview3.jpg">
-                <img src="<?php echo plugin_dir_url( __FILE__ );?>/assets/preview2.jpg">
-                <div class="swiper-slide">Slide 3</div>
-        </div>
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-        <?php
-        endforeach;
-        wp_reset_postdata();
-    }
-    ?>
+     
+    $recent_posts = get_posts($args);
+ 
+    $post_card = '<div class="post_card_container">';
+ 
+    foreach ($recent_posts as $post) :
+         
+        setup_postdata($post);
+        $post_card .= '<div class="postcard">';
+        $post_card .= '<div class="postcard_body">'.the_content();
+        $post_card .= '</div>';
+        $post_card .= '</div>'; 
 
-        
-    
-    <?php $projectData = ob_get_clean();
-    return $projectData;
+    endforeach;    
+     
+    wp_reset_postdata();
+ 
+    $post_card .= '</div>';
+     
+    return $post_card;
+ 
 }
 
-    
-}
+add_shortcode( 'postcards', 'make_postcards' );
 
-add_shortcode( 'myslider', 'make_shortcode' );
+
+
 
 
 function theTitleShortCode(){
-    $title = get_the_title();
+    $title = wp_kses_post(get_the_title());
     return $title;
 }
 
-add_shortcode( 'mytitle', 'theTitleShortCode' );
+add_shortcode( 'postcard_title', 'theTitleShortCode' );
+
