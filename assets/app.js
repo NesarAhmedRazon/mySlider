@@ -39,11 +39,12 @@ jQuery.noConflict();
       slidesToScroll: 1,
       arrows: false,
       fade: true,
+      lazyLoad: "ondemand",
       cssEase: "linear",
       asNavFor: ".slider-nav",
     });
     $(".slider-nav").slick({
-      slidesToShow: 4,
+      slidesToShow: 6,
       slidesToScroll: 1,
       arrows: false,
       centerMode: true,

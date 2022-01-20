@@ -1,15 +1,11 @@
 .sliderContainer {
   width: 100%;
-  height: fit-content;
   position: relative;
   & .slider {
     width: 100%;
     height: fit-content;
     overflow-y: hidden;
     cursor: grab;
-    & .slick-list {
-      transform: translateY(-25%);
-    }
   }
 }
 .sliderNavcontainer {
@@ -18,8 +14,10 @@
   height: fit-content;
   position: relative;
   font-size: 0.75rem;
+  margin-bottom: 2rem;
   & .slick-slide {
     opacity: 0.8;
+    margin: 0 0.6em;
     &.slick-current {
       opacity: 1;
     }

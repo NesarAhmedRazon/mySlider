@@ -45,7 +45,7 @@ function make_postcards($attr, $content = null){
         echo '<div class="sliderContainer">';
         echo '<div class="slider" id="slide_'.$post->ID.'" data-slick=\'{"asNavFor": "#slideNav_'.$post->ID.'"}\'>';
                 if(has_post_thumbnail( )){
-                    echo '<img src="'.get_the_post_thumbnail_url().'">';
+                    echo '<img data-lazy="'.get_the_post_thumbnail_url().'">';
                 }
                 if( class_exists('Dynamic_Featured_Image') ):
                     global $dynamic_featured_image;
@@ -53,7 +53,7 @@ function make_postcards($attr, $content = null){
 
                     if ( $featured_images ):
                         foreach( $featured_images as $images ):
-                            echo '<img src="'.$images['full'].'" alt="">';                            
+                            echo '<img data-lazy="'.$images['full'].'" alt="">';                            
                         endforeach; 
                     endif;
                 endif;
