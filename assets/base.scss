@@ -1,9 +1,76 @@
 .sliderContainer {
   width: 100%;
   height: fit-content;
-  overflow-y: hidden;
-  background-color: red;
-  & .slick-list {
-    transform: translateY(-25%);
+  position: relative;
+  & .slider {
+    width: 100%;
+    height: fit-content;
+    overflow-y: hidden;
+    cursor: grab;
+    & .slick-list {
+      transform: translateY(-25%);
+    }
+  }
+}
+.sliderNavcontainer {
+  z-index: 99;
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  font-size: 0.75rem;
+  & .slick-slide {
+    opacity: 0.8;
+    &.slick-current {
+      opacity: 1;
+    }
+  }
+}
+.btn {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  width: 1.5em;
+  height: 2em;
+  background-color: #3333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background-color: #fff7;
+  }
+  &:before {
+    content: "";
+    width: 80%;
+    height: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  &.prev {
+    left: 0;
+  }
+  &.next {
+    right: 0;
+    &:before {
+      transform: rotateY(180deg);
+    }
+  }
+}
+.post_card_container {
+  & .postcard {
+    display: block;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    & .postcard_body {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 1s ease-in-out;
+      &.show {
+        max-height: 1000vh;
+      }
+    }
   }
 }
