@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: mySlider
+Plugin Name: Project Card With slider
 Plugin URI: https://github.com/NesarAhmedRazon/mySlider.git
 Description: This is a WordPress Plugin to output custom post Type 'Project' as slidder on home page
 Author: Nesar Ahmed
