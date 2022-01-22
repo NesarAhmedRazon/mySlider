@@ -49,6 +49,7 @@ jQuery.noConflict();
       arrows: false,
       centerMode: true,
       focusOnSelect: true,
+      lazyLoad: "ondemand",
     });
   });
 })(jQuery);
