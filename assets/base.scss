@@ -22,11 +22,17 @@
       opacity: 1;
     }
   }
+  .btn {
+    background-color: #000a;
+  }
 }
 .slider,
 .slider-nav {
   &:hover ~ .btn {
-    opacity: 0.5;
+    &.prev,
+    &.next {
+      opacity: 0.5;
+    }
   }
 }
 .btn {
