@@ -6,10 +6,8 @@
     height: fit-content;
     overflow-y: hidden;
     cursor: grab;
-    &:hover {
-      & .btn {
-        opacity: 0.5;
-      }
+    &:hover + .btn {
+      opacity: 0.5;
     }
   }
 }
