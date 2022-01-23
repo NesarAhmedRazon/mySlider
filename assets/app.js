@@ -1,11 +1,11 @@
 jQuery.noConflict();
 (function ($) {
   $(function () {
-    $(window).on("load", function () {
-      $(".postcard").first().find(".postcard_body").addClass("show");
-    });
+    // $(window).on("load", function () {
+    //   $(".postcard").first().find(".postcard_body").addClass("show");
+    // });
     $(".postcard .sliderContainer .slider").on("click", function () {
-      console.log("clicked");
+      
       $(this)
         .closest(".postcard")
         .siblings()
@@ -63,6 +63,8 @@ jQuery.noConflict();
           settings: {
             slidesToShow: 2,
             slidesToScroll: 1,
+            centerMode: true,
+            lazyLoad: "progressive",
           },
         },
       ],
