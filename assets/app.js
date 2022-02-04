@@ -1,6 +1,8 @@
 jQuery.noConflict();
 (function ($) {
   $(function () {
+    let h = 8;
+    let w = 16;
     $(window).on("load", function () {
       $(".postcard").first().find(".postcard_body").addClass("show");
     });
@@ -15,9 +17,9 @@ jQuery.noConflict();
     });
 
     //Slider Init
-    $(".slider").outerHeight((9 / 16) * $(".slider").outerWidth());
+    $(".slider").outerHeight((h / w) * $(".slider").outerWidth());
     $(window).on("resize", function () {
-      $(".slider").outerHeight((9 / 16) * $(".slider").outerWidth());
+      $(".slider").outerHeight((h / w) * $(".slider").outerWidth());
     });
 
     $(".sliderContainer .prev").on("click", function () {
