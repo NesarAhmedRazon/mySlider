@@ -18,6 +18,9 @@
   & .slick-slide {
     opacity: 0.8;
     margin: 0 0.6em;
+    & div {
+      transform: translateY(-50%);
+    }
     &.slick-current {
       opacity: 1;
     }

@@ -1,19 +1,10 @@
 jQuery.noConflict();
 (function ($) {
   $(function () {
-<<<<<<< HEAD
-    let h = 8;
-    let w = 16;
     $(window).on("load", function () {
       $(".postcard").first().find(".postcard_body").addClass("show");
     });
-=======
-    // $(window).on("load", function () {
-    //   $(".postcard").first().find(".postcard_body").addClass("show");
-    // });
->>>>>>> f92e6c4183162e25f09284db6163ce06833a13f7
     $(".postcard .sliderContainer .slider").on("click", function () {
-      
       $(this)
         .closest(".postcard")
         .siblings()
@@ -23,9 +14,9 @@ jQuery.noConflict();
     });
 
     //Slider Init
-    $(".slider").outerHeight((h / w) * $(".slider").outerWidth());
+    $(".slider").outerHeight((8 / 16) * $(".slider").outerWidth());
     $(window).on("resize", function () {
-      $(".slider").outerHeight((h / w) * $(".slider").outerWidth());
+      $(".slider").outerHeight((8 / 16) * $(".slider").outerWidth());
     });
 
     $(".sliderContainer .prev").on("click", function () {
@@ -77,5 +68,6 @@ jQuery.noConflict();
         },
       ],
     });
+    $(".slick-slide img").css("transform", "translateY(-25%)");
   });
 })(jQuery);
