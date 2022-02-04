@@ -68,6 +68,6 @@ jQuery.noConflict();
         },
       ],
     });
-    $(".slick-slide img").css("transform", "translateY(-25%)");
+    $(".slider .slick-slide img").css("transform", "translateY(-25%)");
   });
 })(jQuery);
