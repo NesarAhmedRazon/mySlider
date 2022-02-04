@@ -2,22 +2,14 @@ jQuery.noConflict();
 (function ($) {
   $(function () {
     $(window).on("load", function () {
-      $(".postcard").first().find(".postcard_body").addClass("show");
-    });
-    $(".postcard .sliderContainer .slider").on("click", function () {
-      $(this)
-        .closest(".postcard")
-        .siblings()
-        .find(".postcard_body")
-        .removeClass("show");
-      $(this).closest(".postcard").find(".postcard_body").toggleClass("show");
+      // $(".postcard").first().find(".postcard_body").addClass("show");
     });
 
     //Slider Init
-    $(".slider").outerHeight((8 / 16) * $(".slider").outerWidth());
-    $(window).on("resize", function () {
-      $(".slider").outerHeight((8 / 16) * $(".slider").outerWidth());
-    });
+    // $(".slider .slick-slide > div").outerHeight((8 / 16) * $(".slider").outerWidth());
+    // $(window).on("resize", function () {
+    //   $(".slider").outerHeight((8 / 16) * $(".slider").outerWidth());
+    // });
 
     $(".sliderContainer .prev").on("click", function () {
       $(this).closest(".postcard").find(".slider").slick("slickPrev");
@@ -41,6 +33,7 @@ jQuery.noConflict();
       lazyLoad: "ondemand",
       cssEase: "linear",
       asNavFor: ".slider-nav",
+      adaptiveHeight: true,
     });
     $(".slider-nav").slick({
       slidesToShow: 6,
@@ -68,6 +61,35 @@ jQuery.noConflict();
         },
       ],
     });
-    $(".slider .slick-slide img").css("transform", "translateY(-25%)");
+
+    //s$(".slider .slick-slide div").css("transform", "translateY(-25%)");
+
+    $(".slider .slick-slide > div")
+      .outerHeight((8 / 16) * $(".slider").outerWidth())
+      .children("img")
+      .css("margin-top", "-25%");
+    $(window).on("resize", function () {
+      $(".slider .slick-slide > div")
+        .outerHeight((8 / 16) * $(".slider").outerWidth())
+        .children("img")
+        .css("margin-top", "-25%");
+    });
+    // $(".postcard .sliderContainer .slider").on("click", function () {
+    //   $(this)
+    //     .closest(".postcard")
+    //     .siblings()
+    //     .find(".postcard_body")
+    //     .removeClass("show");
+    //   $(this).closest(".postcard").find(".postcard_body").toggleClass("show");
+    //   let sID = $(this).attr("id");
+    //   let slider = document.getElementById(sID);
+    //   let slide = slider.getElementsByClassName("slick-slide");
+    //   console.log(slide);
+    //   slide.forEach(function (element) {
+    //     element.firstChild.style.height = "";
+    //     element.firstChild.firstChild.style.marginTop = "";
+    //     element.parentElement.parentElement.style.height = "";
+    //   });
+    // });
   });
 })(jQuery);
