@@ -56,7 +56,7 @@ function make_postcards($attr, $content = null)
 
             if ($featured_images) :
                 foreach ($featured_images as $images) :
-                    echo '<img data-lazy="' . $images['full'] . '" alt="">';
+                    echo '<img class="bigs" data-lazy="' . $images['full'] . '" alt="">';
                 endforeach;
             endif;
         endif;

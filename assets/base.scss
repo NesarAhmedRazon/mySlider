@@ -6,6 +6,9 @@
     cursor: grab;
     overflow-y: hidden;
     height: fit-content;
+    & .bigs {
+      margin-top: -25%;
+    }
   }
   & .mit_title {
     top: 50%;
