@@ -64,15 +64,17 @@ jQuery.noConflict();
 
     //s$(".slider .slick-slide div").css("transform", "translateY(-25%)");
 
-    $(".slider .slick-slide > div")
-      .outerHeight((8 / 16) * $(".slider").outerWidth())
-      .children("img")
-      .css("margin-top", "-25%");
+    $(".slider .slick-slide > div").outerHeight(
+      (8 / 16) * $(".slider").outerWidth()
+    );
+    // .children("img")
+    // .css("margin-top", "-25%");
     $(window).on("resize", function () {
-      $(".slider .slick-slide > div")
-        .outerHeight((8 / 16) * $(".slider").outerWidth())
-        .children("img")
-        .css("margin-top", "-25%");
+      $(".slider .slick-slide > div").outerHeight(
+        (8 / 16) * $(".slider").outerWidth()
+      );
+      // .children("img")
+      // .css("margin-top", "-25%");
     });
     // $(".postcard .sliderContainer .slider").on("click", function () {
     //   $(this)
