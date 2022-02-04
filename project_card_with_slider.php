@@ -11,9 +11,9 @@ Author URI: https://github.com/NesarAhmedRazon/
 function make_postcards($attr, $content = null)
 {
     wp_enqueue_style('slider-style', plugin_dir_url(__FILE__) . 'assets/slick/slick.css');
-    wp_enqueue_style('slider-base', plugin_dir_url(__FILE__) . 'assets/base.css');
-    wp_enqueue_script('slider-lib', plugin_dir_url(__FILE__) . 'assets/slick/slick.js', array(), null, true);
-    wp_enqueue_script('slider-app', plugin_dir_url(__FILE__) . 'assets/app.js', array(), null, true);
+    wp_enqueue_style('slider-base', plugin_dir_url(__FILE__) . 'assets/base.css?v='.time());
+    wp_enqueue_script('slider-lib', plugin_dir_url(__FILE__) . 'assets/slick/slick.js?v='.time(), array(), null, true);
+    wp_enqueue_script('slider-app', plugin_dir_url(__FILE__) . 'assets/app.js?v='.time(), array(), null, true);
 
     global $post;
 
@@ -63,6 +63,7 @@ function make_postcards($attr, $content = null)
 
         echo '</div>'; // Main Slide End
         echo '<div class="prev btn"></div><div class="next btn"></div>';
+        echo '<div class="mit_title">'.esc_html( get_the_title() ).'</div>';
         echo '</div>'; // Slide container
         echo '<div class="postcard_body">' . $content;
         echo '<div class="sliderNavcontainer">';
