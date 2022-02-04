@@ -1,13 +1,19 @@
 jQuery.noConflict();
 (function ($) {
   $(function () {
+<<<<<<< HEAD
     let h = 8;
     let w = 16;
     $(window).on("load", function () {
       $(".postcard").first().find(".postcard_body").addClass("show");
     });
+=======
+    // $(window).on("load", function () {
+    //   $(".postcard").first().find(".postcard_body").addClass("show");
+    // });
+>>>>>>> f92e6c4183162e25f09284db6163ce06833a13f7
     $(".postcard .sliderContainer .slider").on("click", function () {
-      console.log("clicked");
+      
       $(this)
         .closest(".postcard")
         .siblings()
@@ -51,6 +57,25 @@ jQuery.noConflict();
       arrows: false,
       centerMode: true,
       focusOnSelect: true,
+      lazyLoad: "ondemand",
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 640,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            centerMode: true,
+            lazyLoad: "progressive",
+          },
+        },
+      ],
     });
   });
 })(jQuery);
